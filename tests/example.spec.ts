@@ -20,7 +20,9 @@ test.describe('Лендинг', () => {
     await modal.locator('#jobPosition').click({ timeout: timeoutWait });
     await modal.locator('#jobPosition').fill('test job pos', { timeout: timeoutWait });
     await modal.locator('#companySize').click({ timeout: timeoutWait });
-    await modal.locator('#companySize > option:nth-child(2)').click({ timeout: timeoutWait });
-    await modal.locator('div[class*="privacy-policy"][class*="form-checkbox"] input').click({ timeout: timeoutWait });
+    await modal.locator('#companySize').selectOption({index: 3}, {force:true, timeout: timeoutWait});
+    await modal.locator('#companySize').click({ timeout: timeoutWait });
+    await modal.locator('div[class*="privacy-policy"][class*="form-checkbox"] input[type*="checkbox"]').click({force:true, timeout: timeoutWait });
+    await modal.locator('button').click();
   })
 });
